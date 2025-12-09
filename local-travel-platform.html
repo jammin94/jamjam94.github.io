@@ -13,160 +13,224 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f5f5f5;
             min-height: 100vh;
-            padding: 20px;
+            padding-bottom: 70px;
         }
 
         .container {
             max-width: 480px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+            min-height: 100vh;
         }
 
+        /* Header */
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px 20px;
-            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header h1 {
-            font-size: 24px;
+        .location-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-bottom: 10px;
         }
 
-        .header p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .nav-tabs {
-            display: flex;
-            background: #f8f9fa;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        .nav-tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            color: #6c757d;
-            transition: all 0.3s;
-            border: none;
-            background: transparent;
-        }
-
-        .nav-tab.active {
-            color: #667eea;
-            background: white;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .content {
-            padding: 20px;
-            display: none;
-        }
-
-        .content.active {
-            display: block;
-        }
-
-        .feature-card {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .feature-card h3 {
-            font-size: 16px;
-            color: #667eea;
-            margin-bottom: 8px;
+        .location {
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 14px;
         }
 
-        .feature-card p {
+        .notification-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            width: 12px;
+            height: 12px;
+            background: #ff4757;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        /* Page Content */
+        .page {
+            display: none;
+            padding: 20px;
+            padding-bottom: 80px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Main/Home Page */
+        .help-button-large {
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(255,107,107,0.3);
+            transition: transform 0.2s;
+        }
+
+        .help-button-large:hover {
+            transform: translateY(-3px);
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .tip-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .tip-card p {
             font-size: 14px;
-            color: #6c757d;
+            color: #555;
             line-height: 1.5;
         }
 
-        .search-box {
+        .warning-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .warning-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .warning-card p {
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+
+        /* Help Request Page */
+        .request-type-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .request-tab {
+            flex: 1;
+            padding: 12px 8px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .request-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        .input-section label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .textarea-with-voice {
+            position: relative;
+        }
+
+        .request-textarea {
             width: 100%;
+            min-height: 150px;
             padding: 15px;
             border: 2px solid #e9ecef;
             border-radius: 12px;
             font-size: 14px;
-            margin-bottom: 20px;
-            transition: border-color 0.3s;
+            resize: vertical;
+            font-family: inherit;
         }
 
-        .search-box:focus {
+        .request-textarea:focus {
             outline: none;
             border-color: #667eea;
         }
 
-        .local-guide {
+        .voice-button {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            background: white;
-            border: 2px solid #e9ecef;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .ai-preview {
+            background: #e3f2fd;
             border-radius: 12px;
             padding: 15px;
-            margin-bottom: 12px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #1976d2;
         }
 
-        .local-guide img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 15px;
-            background: #667eea;
-        }
-
-        .local-guide-info {
-            flex: 1;
-        }
-
-        .local-guide-info h4 {
-            font-size: 15px;
-            margin-bottom: 4px;
-        }
-
-        .local-guide-info p {
-            font-size: 12px;
-            color: #6c757d;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            background: #667eea;
-            color: white;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .btn-primary {
+        .btn-match {
             width: 100%;
-            padding: 15px;
+            padding: 18px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
@@ -175,182 +239,648 @@
             font-weight: 600;
             cursor: pointer;
             margin-top: 20px;
-            transition: transform 0.2s;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-        }
-
-        .recommendation {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        /* Filtering Map Page */
+        .filter-controls {
+            background: white;
             padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-switch {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .switch {
+            position: relative;
+            width: 48px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #667eea;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+        }
+
+        .place-card {
+            background: white;
+            border: 2px solid #e9ecef;
             border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .place-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .place-card h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .authenticity-score {
+            display: inline-block;
+            padding: 4px 10px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        .place-comment {
+            font-size: 13px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .shortcut-btn {
+            width: 100%;
+            padding: 12px;
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            color: #856404;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* Social/Community Page */
+        .profile-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .samaritan-level {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .social-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-tab {
+            flex: 1;
+            padding: 12px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .social-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .social-post {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .post-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .post-info h4 {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .post-info p {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .post-content {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .post-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            background: #e3f2fd;
+            color: #1976d2;
+            border-radius: 12px;
+            font-size: 11px;
+        }
+
+        .btn-new-post {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            padding: 8px;
+            color: #6c757d;
+            transition: color 0.3s;
+            border: none;
+            background: transparent;
+            font-size: 11px;
+        }
+
+        .nav-item.active {
+            color: #667eea;
+        }
+
+        .nav-icon {
+            font-size: 22px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 90%;
+            width: 350px;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            font-size: 20px;
             margin-bottom: 15px;
         }
 
-        .recommendation h4 {
-            font-size: 15px;
-            margin-bottom: 8px;
-            color: #333;
+        .modal-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
         }
 
-        .recommendation p {
-            font-size: 13px;
-            color: #555;
+        .btn-close {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
         }
 
         @media (max-width: 480px) {
             .container {
-                border-radius: 0;
+                max-width: 100%;
             }
 
-            .header {
-                padding: 20px 15px;
-            }
-
-            .header h1 {
-                font-size: 20px;
+            .bottom-nav {
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <div class="header">
-            <h1>🤝 현지인 필터 플랫폼</h1>
-            <p>진짜 현지인의 진짜 추천을 받아보세요</p>
+            <div class="location-bar">
+                <div class="location">
+                    <span>📍</span>
+                    <span>서울 강남구 근처</span>
+                </div>
+                <div class="notification-icon">
+                    🔔
+                    <div class="notification-badge"></div>
+                </div>
+            </div>
+            <h1>현지인 필터 플랫폼</h1>
         </div>
 
-        <div class="nav-tabs">
-            <button class="nav-tab active" data-tab="filter">진정성 필터</button>
-            <button class="nav-tab" data-tab="coaching">문화 코칭</button>
-            <button class="nav-tab" data-tab="connect">현지인 연결</button>
-        </div>
+        <!-- Page 1: Main/Home -->
+        <div id="home" class="page active">
+            <button class="help-button-large" onclick="showHelpRequest()">
+                🆘 지금 바로 도움 요청하기
+            </button>
 
-        <div id="filter" class="content active">
-            <input type="text" class="search-box" placeholder="어디로 여행가시나요? (예: 도쿄, 방콕...)">
+            <h3 style="font-size: 16px; margin-bottom: 15px; color: #333;">🔥 오늘의 현지인 꿀팁</h3>
 
-            <div class="feature-card">
-                <h3>🎯 진정성 필터</h3>
-                <p>객관적 평점 대신, 한국인 커뮤니티 데이터를 분석하여 진짜 선호도를 추천해드립니다.</p>
+            <div class="tip-card">
+                <h3>💡 AI 추천 장소</h3>
+                <p><strong>홍대 "교촌치킨"</strong> 대신 <strong>"진미통닭"</strong>을 추천합니다. 현지인 선호도 92% vs 18%</p>
             </div>
 
-            <div class="feature-card">
-                <h3>🗺️ 실용성 최적화</h3>
-                <p>지도 앱이 알려주지 않는, 현지인만 아는 비공식 최적 경로와 꿀팁을 제공합니다.</p>
+            <div class="warning-card">
+                <h3>⚠️ 지금 피해야 할 곳</h3>
+                <p>명동 거리는 지금 시간대 관광객으로 붐법니다. 광장시장에서 더 저렴하고 맛있는 음식을 즐기세요!</p>
             </div>
 
-            <div class="recommendation">
-                <h4>💡 AI 추천 장소</h4>
-                <p><strong>라멘집 "이치란"</strong> 대신 <strong>"후우린카잔"</strong>을 추천합니다. 현지인 선호도 87% vs 12%</p>
-            </div>
-
-            <div class="recommendation">
-                <h4>🚶 최적 경로 팁</h4>
-                <p>시부야에서 하라주쿠까지 걸어가면 15분 단축! 구글맵 경로보다 3블록 빠름.</p>
-            </div>
-        </div>
-
-        <div id="coaching" class="content">
-            <h3 style="margin-bottom: 20px; font-size: 18px;">문화 코칭</h3>
-
-            <div class="feature-card">
-                <h3>🙏 매너 가이드</h3>
-                <p>일본 라멘집에선 후루룩 소리 내도 괜찮아요. 오히려 맛있게 먹는다는 표현!</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>🔥 현지 유행</h3>
-                <p>요즘 도쿄에선 타피오카 대신 "마리토쪼" 디저트가 핫해요!</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>⚠️ 실례되는 행동</h3>
-                <p>전철에서 통화하는 건 금기! 무음모드 필수입니다.</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>🍜 주문 꿀팁</h3>
-                <p>"카타메(硬め)"라고 하면 면을 더 쫄깃하게 해줘요. 현지인 스타일!</p>
+            <div class="tip-card">
+                <h3>🚇 최적 경로 팁</h3>
+                <p>강남역에서 신사역까지 지하철 대신 도보 10분! 구글맵보다 5분 빠름.</p>
             </div>
         </div>
 
-        <div id="connect" class="content">
-            <input type="text" class="search-box" placeholder="관심사나 일정을 검색해보세요">
+        <!-- Page 2: Help Request -->
+        <div id="help" class="page">
+            <h2 style="font-size: 20px; margin-bottom: 20px; color: #333;">도움 요청하기</h2>
 
-            <h3 style="margin-bottom: 15px; font-size: 16px;">추천 현지인 도우미</h3>
+            <div class="request-type-tabs">
+                <button class="request-tab active" data-type="route">
+                    🗺️<br>길/장소
+                </button>
+                <button class="request-tab" data-type="food">
+                    🍽️<br>맛집
+                </button>
+                <button class="request-tab" data-type="culture">
+                    🎭<br>문화/예절
+                </button>
+            </div>
 
-            <div class="local-guide">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Ccircle cx='25' cy='25' r='25' fill='%23667eea'/%3E%3C/svg%3E" alt="profile">
-                <div class="local-guide-info">
-                    <h4>김현지 🇰🇷 거주 5년차</h4>
-                    <p>도쿄 맛집 전문 | 도움 횟수 248회</p>
-                    <span class="badge">Lv.15 Good Samaritan</span>
+            <div class="input-section">
+                <label>어떤 도움이 필요하신가요?</label>
+                <div class="textarea-with-voice">
+                    <textarea class="request-textarea" placeholder="예: 홍대에서 강남으로 가는 가장 빠른 방법이 궁금해요"></textarea>
+                    <button class="voice-button">🎤</button>
+                </div>
+                <div class="ai-preview">
+                    💬 AI 통역: "What's the fastest way from Hongdae to Gangnam?"
                 </div>
             </div>
 
-            <div class="local-guide">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Ccircle cx='25' cy='25' r='25' fill='%23764ba2'/%3E%3C/svg%3E" alt="profile">
-                <div class="local-guide-info">
-                    <h4>이준호 🇰🇷 거주 3년차</h4>
-                    <p>쇼핑 & 교통 꿀팁 | 도움 횟수 156회</p>
-                    <span class="badge">Lv.12 Helper</span>
+            <button class="btn-match" onclick="startMatching()">현지인 매칭 시작</button>
+        </div>
+
+        <!-- Page 3: Filtering Map -->
+        <div id="map" class="page">
+            <div class="filter-controls">
+                <div class="filter-switch">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span style="font-size: 13px; font-weight: 600;">관광객 트랩 제거</span>
+                </div>
+                <button style="padding: 8px 12px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 12px; cursor: pointer;">
+                    TOP 순위
+                </button>
+            </div>
+
+            <div style="padding: 20px;">
+                <div class="map-container">
+                    🗺️ 지도 영역 (Google Maps API 연동)
+                </div>
+
+                <h3 style="font-size: 16px; margin-bottom: 15px; color: #333;">🌶️ 현지인 추천 장소</h3>
+
+                <div class="place-card">
+                    <h4>
+                        광장시장
+                        <span class="authenticity-score">진정성 95%</span>
+                    </h4>
+                    <p style="font-size: 13px; color: #666;">한국 전통 시장 · 서울 종로구</p>
+                    <p class="place-comment">"관광객도 많지만 진짜 맛집들이 즐비함. 빈대떡과 마약김밥 꼭 먹어봐야 함!" - 김민수 (거주 10년)</p>
+                </div>
+
+                <div class="place-card">
+                    <h4>
+                        진미통닭
+                        <span class="authenticity-score">진정성 92%</span>
+                    </h4>
+                    <p style="font-size: 13px; color: #666;">치킨집 · 서울 홍대</p>
+                    <p class="place-comment">"홍대 현지인들이 진짜 가는 곳. 교촌보다 맛있고 저렴함" - 이지원 (거주 5년)</p>
+                </div>
+
+                <button class="shortcut-btn">
+                    🚶 현지인 지름길/꿀팁 보기
+                </button>
+            </div>
+        </div>
+
+        <!-- Page 4: Social/Community -->
+        <div id="social" class="page">
+            <div class="profile-card">
+                <h3>나의 프로필</h3>
+                <div class="samaritan-level">
+                    <span>도움 활동: 23회</span>
+                    <span class="level-badge">Lv.8 Helper</span>
                 </div>
             </div>
 
-            <div class="local-guide">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Ccircle cx='25' cy='25' r='25' fill='%23667eea'/%3E%3C/svg%3E" alt="profile">
-                <div class="local-guide-info">
-                    <h4>박서연 🇰🇷 거주 7년차</h4>
-                    <p>문화체험 전문가 | 도움 횟수 392회</p>
-                    <span class="badge">Lv.18 Master Guide</span>
+            <div class="social-tabs">
+                <button class="social-tab active" data-social="local">
+                    현지인 제안
+                </button>
+                <button class="social-tab" data-social="traveler">
+                    여행객 모집
+                </button>
+            </div>
+
+            <div class="social-post">
+                <div class="post-header">
+                    <div class="post-avatar">👨</div>
+                    <div class="post-info">
+                        <h4>박준형 (서울 거주 7년)</h4>
+                        <p>Lv.15 Master Guide</p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    이번 주말에 북촌 한옥마을 투어 같이 하실 분! 숨겨진 포토스팟 다 알려드립니다 😊
+                </div>
+                <div class="post-tags">
+                    <span class="tag">#관광</span>
+                    <span class="tag">#사진</span>
+                    <span class="tag">#한옥마을</span>
                 </div>
             </div>
 
-            <button class="btn-primary">현지인에게 도움 요청하기</button>
+            <div class="social-post">
+                <div class="post-header">
+                    <div class="post-avatar">👩</div>
+                    <div class="post-info">
+                        <h4>김수진 (서울 거주 4년)</h4>
+                        <p>Lv.12 Good Samaritan</p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    오늘 저녁 한국식 바비큐(삼겹살) 체험하실 분 모집합니다! 현지인들이 가는 맛집으로 안내해드려요 🥓
+                </div>
+                <div class="post-tags">
+                    <span class="tag">#맛집</span>
+                    <span class="tag">#바비큐</span>
+                    <span class="tag">#삼겹살</span>
+                </div>
+            </div>
+
+            <div class="social-post">
+                <div class="post-header">
+                    <div class="post-avatar">🧑</div>
+                    <div class="post-info">
+                        <h4>이동현 (서울 거주 3년)</h4>
+                        <p>Lv.10 Helper</p>
+                    </div>
+                </div>
+                <div class="post-content">
+                    K-POP 좋아하시는 분! 강남 K-STAR ROAD 같이 구경하실래요? 아이돌 굿즈샵 추천해드립니다!
+                </div>
+                <div class="post-tags">
+                    <span class="tag">#K-POP</span>
+                    <span class="tag">#강남</span>
+                    <span class="tag">#쇼핑</span>
+                </div>
+            </div>
+
+            <button class="btn-new-post">➕ 새 제안 올리기</button>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <button class="nav-item active" data-page="home">
+                <div class="nav-icon">🏠</div>
+                <div>홈</div>
+            </button>
+            <button class="nav-item" data-page="help">
+                <div class="nav-icon">❓</div>
+                <div>도움요청</div>
+            </button>
+            <button class="nav-item" data-page="map">
+                <div class="nav-icon">🗺️</div>
+                <div>지도</div>
+            </button>
+            <button class="nav-item" data-page="social">
+                <div class="nav-icon">👥</div>
+                <div>소셜</div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Matching Modal -->
+    <div id="matchingModal" class="modal">
+        <div class="modal-content">
+            <h2>🔍 현지인 매칭 중...</h2>
+            <p>주변 현지인들에게 요청을 보내고 있습니다.</p>
+            <p style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 10px; text-align: left;">
+                <strong>💡 AI 즉시 답변:</strong><br>
+                홍대에서 강남까지는 지하철 2호선이 가장 빠릅니다. 약 30분 소요됩니다.
+            </p>
+            <button class="btn-close" onclick="closeModal()">확인</button>
         </div>
     </div>
 
     <script>
-        // Tab switching
-        const tabs = document.querySelectorAll('.nav-tab');
-        const contents = document.querySelectorAll('.content');
+        // Bottom Navigation
+        const navItems = document.querySelectorAll('.nav-item');
+        const pages = document.querySelectorAll('.page');
 
-        tabs.forEach(tab => {
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const pageName = item.getAttribute('data-page');
+
+                // Remove active class
+                navItems.forEach(nav => nav.classList.remove('active'));
+                pages.forEach(page => page.classList.remove('active'));
+
+                // Add active class
+                item.classList.add('active');
+                document.getElementById(pageName).classList.add('active');
+            });
+        });
+
+        // Request Type Tabs
+        const requestTabs = document.querySelectorAll('.request-tab');
+        requestTabs.forEach(tab => {
             tab.addEventListener('click', () => {
-                // Remove active class from all tabs and contents
-                tabs.forEach(t => t.classList.remove('active'));
-                contents.forEach(c => c.classList.remove('active'));
-
-                // Add active class to clicked tab
+                requestTabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
-
-                // Show corresponding content
-                const tabName = tab.getAttribute('data-tab');
-                document.getElementById(tabName).classList.add('active');
             });
         });
 
-        // Feature card click animation
-        const featureCards = document.querySelectorAll('.feature-card');
-        featureCards.forEach(card => {
+        // Social Tabs
+        const socialTabs = document.querySelectorAll('.social-tab');
+        socialTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                socialTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Show Help Request
+        function showHelpRequest() {
+            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+
+            document.querySelector('[data-page="help"]').classList.add('active');
+            document.getElementById('help').classList.add('active');
+        }
+
+        // Start Matching
+        function startMatching() {
+            document.getElementById('matchingModal').classList.add('active');
+        }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('matchingModal').classList.remove('active');
+        }
+
+        // Place card click
+        document.querySelectorAll('.place-card').forEach(card => {
             card.addEventListener('click', () => {
-                card.style.background = '#e7f3ff';
+                card.style.background = '#f0f7ff';
                 setTimeout(() => {
-                    card.style.background = '#f8f9fa';
-                }, 200);
-            });
-        });
-
-        // Search box interaction
-        const searchBoxes = document.querySelectorAll('.search-box');
-        searchBoxes.forEach(box => {
-            box.addEventListener('focus', () => {
-                box.style.transform = 'scale(1.02)';
-            });
-            box.addEventListener('blur', () => {
-                box.style.transform = 'scale(1)';
+                    card.style.background = 'white';
+                }, 300);
             });
         });
     </script>
