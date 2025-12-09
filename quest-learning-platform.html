@@ -12,244 +12,526 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
             min-height: 100vh;
-            padding: 20px;
-            color: #fff;
+            color: #00ff00;
+            padding-bottom: 70px;
+        }
+
+        /* Theme Variables - Code Architect */
+        :root {
+            --theme-primary: #00ff00;
+            --theme-secondary: #00cc88;
+            --theme-accent: #ffaa00;
+            --theme-bg: #0a0a0a;
+            --theme-card-bg: #1a1a1a;
+            --theme-border: #00ff00;
         }
 
         .container {
             max-width: 480px;
             margin: 0 auto;
+            background: var(--theme-bg);
+            min-height: 100vh;
         }
 
-        .profile-header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
-        }
-
-        .profile-info {
-            display: flex;
-            align-items: center;
+        /* Header with Chip Border Design */
+        .header {
+            background: var(--theme-card-bg);
+            border: 2px solid var(--theme-primary);
+            border-left: 8px solid var(--theme-primary);
+            padding: 20px;
             margin-bottom: 15px;
+            position: relative;
         }
 
-        .avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: white;
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            border-top: 2px solid var(--theme-primary);
+            border-right: 2px solid var(--theme-primary);
+        }
+
+        .level-display {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            margin-right: 15px;
+            margin-bottom: 10px;
         }
 
-        .user-details h2 {
-            font-size: 20px;
-            margin-bottom: 5px;
+        .level-text {
+            font-size: 18px;
+            color: var(--theme-primary);
+            font-weight: bold;
         }
 
-        .user-level {
-            font-size: 14px;
-            opacity: 0.9;
+        .theme-badge {
+            padding: 5px 12px;
+            background: var(--theme-card-bg);
+            border: 1px solid var(--theme-accent);
+            color: var(--theme-accent);
+            font-size: 11px;
+            border-radius: 3px;
         }
 
-        .xp-bar {
-            background: rgba(255, 255, 255, 0.3);
-            height: 12px;
-            border-radius: 10px;
+        /* XP Bar as Code Lines */
+        .xp-container {
+            margin-top: 15px;
+        }
+
+        .xp-bar-wrapper {
+            background: #000;
+            border: 1px solid var(--theme-primary);
+            height: 20px;
+            position: relative;
             overflow: hidden;
-            margin-top: 10px;
         }
 
         .xp-fill {
             height: 100%;
-            background: linear-gradient(90deg, #fff 0%, #ffd700 100%);
-            width: 65%;
-            border-radius: 10px;
-            transition: width 0.5s ease;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--theme-primary),
+                var(--theme-primary) 10px,
+                var(--theme-secondary) 10px,
+                var(--theme-secondary) 20px
+            );
+            width: 0%;
+            transition: width 1s ease;
         }
 
         .xp-text {
-            font-size: 12px;
+            font-size: 11px;
             margin-top: 5px;
+            color: var(--theme-secondary);
             text-align: right;
         }
 
-        .epic-quest {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
+        /* Page Content */
+        .page {
+            display: none;
+            padding: 15px;
+            padding-bottom: 80px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Progress Bar with Circuit Design */
+        .progress-section {
+            background: var(--theme-card-bg);
+            border: 1px solid var(--theme-primary);
+            border-radius: 5px;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            margin-bottom: 15px;
         }
 
-        .epic-quest h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .epic-quest p {
-            font-size: 13px;
-            opacity: 0.95;
-            line-height: 1.5;
-        }
-
-        .quest-section {
-            margin-bottom: 25px;
-        }
-
-        .quest-section h3 {
-            font-size: 15px;
-            color: #f093fb;
+        .progress-title {
+            font-size: 14px;
+            color: var(--theme-accent);
             margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            text-transform: uppercase;
         }
 
+        .circuit-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .circuit-node {
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--theme-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            background: var(--theme-bg);
+        }
+
+        .circuit-line {
+            flex: 1;
+            height: 2px;
+            background: var(--theme-primary);
+            position: relative;
+        }
+
+        .circuit-line::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -3px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid var(--theme-primary);
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+
+        /* Quest Cards as Terminal Prompts */
         .quest-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
+            background: var(--theme-card-bg);
+            border: 1px solid var(--theme-primary);
+            border-left: 4px solid var(--theme-accent);
             padding: 15px;
             margin-bottom: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
             cursor: pointer;
+            transition: all 0.3s;
         }
 
         .quest-card:hover {
-            transform: translateX(5px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #f093fb;
+            border-left-width: 8px;
+            background: #252525;
         }
 
-        .quest-card.completed {
-            opacity: 0.6;
-            background: rgba(76, 175, 80, 0.2);
-            border-color: #4caf50;
+        .quest-card::before {
+            content: '> ';
+            color: var(--theme-accent);
+            font-weight: bold;
         }
 
         .quest-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .quest-title {
             font-size: 14px;
-            font-weight: 600;
+            color: var(--theme-primary);
+            font-weight: bold;
         }
 
-        .quest-xp {
-            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
-            color: #1a1a2e;
+        .quest-bytes {
+            background: var(--theme-accent);
+            color: #000;
             padding: 4px 10px;
-            border-radius: 8px;
-            font-size: 12px;
+            border-radius: 3px;
+            font-size: 11px;
             font-weight: bold;
         }
 
         .quest-desc {
-            font-size: 13px;
-            opacity: 0.85;
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-
-        .quest-difficulty {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 5px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .difficulty-easy { background: #4caf50; }
-        .difficulty-medium { background: #ff9800; }
-        .difficulty-hard { background: #f44336; }
-
-        .status-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 11px;
-            margin-left: 8px;
-        }
-
-        .status-active {
-            background: #2196f3;
-        }
-
-        .status-completed {
-            background: #4caf50;
-        }
-
-        .status-locked {
-            background: #9e9e9e;
-        }
-
-        .btn-verify {
-            width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: transform 0.2s;
-        }
-
-        .btn-verify:hover {
-            transform: translateY(-2px);
-        }
-
-        .achievements {
-            background: rgba(255, 215, 0, 0.1);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-
-        .achievements h3 {
-            font-size: 15px;
-            color: #ffd700;
+            font-size: 12px;
+            color: #aaa;
             margin-bottom: 10px;
+            line-height: 1.5;
         }
 
-        .badge-list {
+        .quest-meta {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
 
-        .badge {
-            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
-            color: #1a1a2e;
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+        .difficulty-tag {
+            padding: 3px 8px;
+            font-size: 10px;
+            border-radius: 3px;
+            border: 1px solid;
+        }
+
+        .diff-beginner {
+            border-color: #00ff00;
+            color: #00ff00;
+        }
+
+        .diff-intermediate {
+            border-color: #ffaa00;
+            color: #ffaa00;
+        }
+
+        .diff-advanced {
+            border-color: #ff0000;
+            color: #ff0000;
+        }
+
+        .status-tag {
+            padding: 3px 8px;
+            font-size: 10px;
+            border-radius: 3px;
+            background: var(--theme-primary);
+            color: #000;
+        }
+
+        /* Skill Certificates */
+        .certificate-section {
+            background: var(--theme-card-bg);
+            border: 2px dashed var(--theme-accent);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .certificate-title {
+            font-size: 13px;
+            color: var(--theme-accent);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .certificate-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .certificate {
+            background: linear-gradient(135deg, var(--theme-accent) 0%, #cc8800 100%);
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
             display: flex;
             align-items: center;
             gap: 5px;
         }
 
+        /* Quest Log Page */
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+        }
+
+        .filter-tab {
+            padding: 8px 15px;
+            background: var(--theme-card-bg);
+            border: 1px solid var(--theme-primary);
+            color: var(--theme-primary);
+            font-size: 11px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .filter-tab.active {
+            background: var(--theme-primary);
+            color: #000;
+        }
+
+        /* Knowledge Graph Visualization */
+        .knowledge-graph {
+            background: var(--theme-card-bg);
+            border: 1px solid var(--theme-primary);
+            padding: 20px;
+            margin-bottom: 15px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .graph-placeholder {
+            color: var(--theme-secondary);
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* Verification Page */
+        .verification-header {
+            background: var(--theme-card-bg);
+            border: 2px solid var(--theme-accent);
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .verification-title {
+            font-size: 16px;
+            color: var(--theme-accent);
+            margin-bottom: 5px;
+        }
+
+        .verification-subtitle {
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        .quiz-section {
+            background: var(--theme-card-bg);
+            border: 1px solid var(--theme-primary);
+            border-left: 4px solid var(--theme-primary);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-label {
+            font-size: 12px;
+            color: var(--theme-primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .quiz-input {
+            width: 100%;
+            background: #000;
+            border: 1px solid var(--theme-primary);
+            color: var(--theme-primary);
+            padding: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .quiz-input:focus {
+            outline: none;
+            border-color: var(--theme-accent);
+        }
+
+        .submit-section {
+            background: var(--theme-card-bg);
+            border: 1px solid var(--theme-secondary);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .btn-verify {
+            width: 100%;
+            padding: 15px;
+            background: var(--theme-primary);
+            color: #000;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-verify:hover {
+            background: var(--theme-accent);
+        }
+
+        /* Epic Quest Management */
+        .quest-management-card {
+            background: var(--theme-card-bg);
+            border: 2px solid var(--theme-primary);
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .quest-mgmt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .quest-mgmt-title {
+            font-size: 15px;
+            color: var(--theme-primary);
+            font-weight: bold;
+        }
+
+        .active-indicator {
+            padding: 4px 10px;
+            background: var(--theme-accent);
+            color: #000;
+            font-size: 10px;
+            border-radius: 3px;
+        }
+
+        .progress-bar-simple {
+            background: #000;
+            border: 1px solid var(--theme-primary);
+            height: 15px;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--theme-primary);
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10px;
+            color: var(--theme-accent);
+            font-weight: bold;
+        }
+
+        .btn-action {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--theme-primary);
+            color: var(--theme-primary);
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-right: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-action:hover {
+            background: var(--theme-primary);
+            color: #000;
+        }
+
+        .btn-action.primary {
+            background: var(--theme-primary);
+            color: #000;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--theme-card-bg);
+            border-top: 2px solid var(--theme-primary);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            padding: 8px;
+            color: #666;
+            transition: color 0.3s;
+            border: none;
+            background: transparent;
+            font-size: 10px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .nav-item.active {
+            color: var(--theme-primary);
+        }
+
+        .nav-icon {
+            font-size: 18px;
+        }
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -257,10 +539,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
             align-items: center;
-            z-index: 1000;
+            justify-content: center;
         }
 
         .modal.active {
@@ -268,167 +550,359 @@
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
+            background: var(--theme-card-bg);
+            border: 3px solid var(--theme-primary);
             padding: 30px;
             max-width: 90%;
-            width: 400px;
+            width: 350px;
             text-align: center;
         }
 
         .modal-content h2 {
-            font-size: 24px;
+            font-size: 18px;
+            color: var(--theme-primary);
             margin-bottom: 15px;
         }
 
         .modal-content p {
-            font-size: 14px;
-            margin-bottom: 20px;
-            opacity: 0.9;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .compile-success {
+            color: var(--theme-accent);
+            font-weight: bold;
+            font-size: 16px;
+            margin: 15px 0;
         }
 
         .btn-close {
-            background: white;
-            color: #667eea;
-            padding: 12px 30px;
+            width: 100%;
+            padding: 12px;
+            background: var(--theme-primary);
+            color: #000;
             border: none;
-            border-radius: 10px;
-            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
             cursor: pointer;
+            margin-top: 15px;
+        }
+
+        /* AI Coaching Modal */
+        .coaching-modal .modal-content {
+            border-color: var(--theme-accent);
+        }
+
+        .coaching-modal h2 {
+            color: var(--theme-accent);
+        }
+
+        .recommendation-box {
+            background: #000;
+            border: 1px solid var(--theme-accent);
+            padding: 15px;
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .recommendation-box p {
+            color: var(--theme-primary);
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
+            .container {
+                max-width: 100%;
             }
 
-            .profile-header {
-                padding: 20px 15px;
-            }
-
-            .avatar {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-            }
-
-            .user-details h2 {
-                font-size: 18px;
+            .bottom-nav {
+                max-width: 100%;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Profile Header -->
-        <div class="profile-header">
-            <div class="profile-info">
-                <div class="avatar">🎮</div>
-                <div class="user-details">
-                    <h2>학습자 닉네임</h2>
-                    <div class="user-level">Lv. 15 Developer</div>
+        <!-- Header -->
+        <div class="header">
+            <div class="level-display">
+                <div class="level-text">LEVEL 15 :: CODE_ARCHITECT</div>
+                <div class="theme-badge">프론트엔드</div>
+            </div>
+            <div class="xp-container">
+                <div class="xp-bar-wrapper">
+                    <div class="xp-fill"></div>
+                </div>
+                <div class="xp-text">1,950 / 3,000 Bytes → Lv.16</div>
+            </div>
+        </div>
+
+        <!-- Page 1: Main Dashboard -->
+        <div id="dashboard" class="page active">
+            <div class="progress-section">
+                <div class="progress-title">🏆 EPIC QUEST :: PROGRESS</div>
+                <p style="font-size: 13px; color: #aaa; margin-bottom: 15px;">3년 차 수준의 풀스택 웹 개발자 되기</p>
+
+                <div class="circuit-progress">
+                    <div class="circuit-node">✓</div>
+                    <div class="circuit-line"></div>
+                    <div class="circuit-node">50%</div>
+                    <div class="circuit-line" style="opacity: 0.3;"></div>
+                    <div class="circuit-node" style="opacity: 0.3;">🎯</div>
+                </div>
+                <p style="font-size: 11px; color: #666; margin-top: 8px;">전체 진행률: 50% | 예상 완료: 12개월</p>
+            </div>
+
+            <div class="certificate-section">
+                <div class="certificate-title">📜 SKILL CERTIFICATES</div>
+                <div class="certificate-list">
+                    <div class="certificate">⚡ Promise Master</div>
+                    <div class="certificate">🎯 Async Expert</div>
+                    <div class="certificate">🔥 HTML Pro</div>
                 </div>
             </div>
-            <div class="xp-bar">
-                <div class="xp-fill"></div>
+
+            <div style="margin-bottom: 15px;">
+                <div style="font-size: 12px; color: var(--theme-accent); margin-bottom: 10px; text-transform: uppercase;">ACTIVE MASTERY QUEST</div>
+
+                <div class="quest-card">
+                    <div class="quest-header">
+                        <div class="quest-title">JavaScript 심화 마스터</div>
+                        <div class="quest-bytes">1,200B</div>
+                    </div>
+                    <div class="quest-desc">클로저, 프로미스, async/await 완전 정복</div>
+                    <div class="quest-meta">
+                        <span class="difficulty-tag diff-advanced">고급</span>
+                        <span class="status-tag">ACTIVE</span>
+                    </div>
+                </div>
             </div>
-            <div class="xp-text">1,950 / 3,000 XP to Lv. 16</div>
-        </div>
 
-        <!-- Epic Quest -->
-        <div class="epic-quest">
-            <h3>🏆 에픽 퀘스트</h3>
-            <p><strong>3년 차 수준의 풀스택 웹 개발자 되기</strong></p>
-            <p style="margin-top: 8px; font-size: 12px;">전체 진행률: 35% | 예상 완료: 18개월</p>
-        </div>
+            <div>
+                <div style="font-size: 12px; color: var(--theme-accent); margin-bottom: 10px; text-transform: uppercase;">SKILL QUESTS</div>
 
-        <!-- Achievements -->
-        <div class="achievements">
-            <h3>🎖️ 획득한 칭호</h3>
-            <div class="badge-list">
-                <div class="badge">⚡ Promise Master</div>
-                <div class="badge">🎯 Async Expert</div>
-                <div class="badge">🔥 HTML Pro</div>
+                <div class="quest-card">
+                    <div class="quest-header">
+                        <div class="quest-title">프로미스 3가지 상태 설명</div>
+                        <div class="quest-bytes">300B</div>
+                    </div>
+                    <div class="quest-desc">Pending, Fulfilled, Rejected 상태 보고서 제출</div>
+                    <div class="quest-meta">
+                        <span class="difficulty-tag diff-intermediate">중급</span>
+                        <span class="status-tag">ACTIVE</span>
+                    </div>
+                </div>
+
+                <div class="quest-card" style="opacity: 0.5;">
+                    <div class="quest-header">
+                        <div class="quest-title">Custom Debounce Hook 구현</div>
+                        <div class="quest-bytes">500B</div>
+                    </div>
+                    <div class="quest-desc">useDebounce 커스텀 훅 구현 및 테스트</div>
+                    <div class="quest-meta">
+                        <span class="difficulty-tag diff-advanced">고급</span>
+                        <span style="font-size: 10px; color: #666;">🔒 LOCKED</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Active Mastery Quest -->
-        <div class="quest-section">
-            <h3>📜 마스터리 퀘스트</h3>
+        <!-- Page 2: Quest Log -->
+        <div id="questlog" class="page">
+            <h2 style="font-size: 16px; color: var(--theme-primary); margin-bottom: 15px;">📜 QUEST LOG</h2>
+
+            <div class="filter-tabs">
+                <button class="filter-tab active">전체</button>
+                <button class="filter-tab">JavaScript 기초</button>
+                <button class="filter-tab">React 심화</button>
+                <button class="filter-tab">Node.js</button>
+            </div>
+
+            <div class="knowledge-graph">
+                <div class="graph-placeholder">
+                    🔗 지식 그래프 시각화<br>
+                    <span style="font-size: 10px;">(노드 간 에너지 흐름선으로 연결)</span>
+                </div>
+            </div>
+
+            <div style="font-size: 12px; color: var(--theme-accent); margin-bottom: 10px; text-transform: uppercase;">MASTERY QUESTS</div>
 
             <div class="quest-card">
                 <div class="quest-header">
-                    <div class="quest-title">JavaScript 심화 및 비동기 마스터</div>
-                    <div class="quest-xp">+1,200 XP</div>
+                    <div class="quest-title">[M1] JavaScript 심화 및 비동기</div>
+                    <div class="quest-bytes">1,200B</div>
                 </div>
-                <div class="quest-desc">클로저, 프로미스, async/await를 완벽히 이해하고 실전 프로젝트에 적용</div>
-                <span class="quest-difficulty difficulty-hard">어려움</span>
-                <span class="status-badge status-active">진행 중</span>
+                <div class="quest-desc">클로저, 프로미스, async/await를 완벽히 이해</div>
+                <div class="quest-meta">
+                    <span class="difficulty-tag diff-advanced">고급</span>
+                    <span class="status-tag">ACTIVE</span>
+                </div>
             </div>
 
             <div class="quest-card" style="opacity: 0.5;">
                 <div class="quest-header">
-                    <div class="quest-title">React 기초 마스터</div>
-                    <div class="quest-xp">+800 XP</div>
+                    <div class="quest-title">[M2] React 기초 마스터</div>
+                    <div class="quest-bytes">800B</div>
                 </div>
-                <div class="quest-desc">React 컴포넌트, Hooks, State 관리 완전 정복</div>
-                <span class="quest-difficulty difficulty-medium">보통</span>
-                <span class="status-badge status-locked">잠김 🔒</span>
+                <div class="quest-desc">React 컴포넌트, Hooks, State 관리</div>
+                <div class="quest-meta">
+                    <span class="difficulty-tag diff-intermediate">중급</span>
+                    <span style="font-size: 10px; color: #666;">🔒 LOCKED</span>
+                </div>
             </div>
-        </div>
 
-        <!-- Daily/Skill Quests -->
-        <div class="quest-section">
-            <h3>⚔️ 스킬 퀘스트</h3>
+            <div style="font-size: 12px; color: var(--theme-accent); margin: 20px 0 10px; text-transform: uppercase;">SKILL QUESTS</div>
 
-            <div class="quest-card completed">
+            <div class="quest-card">
                 <div class="quest-header">
-                    <div class="quest-title">✅ 클로저 개념 학습</div>
-                    <div class="quest-xp">+150 XP</div>
+                    <div class="quest-title">[탐험 좌표 1.1] 클로저 개념 학습</div>
+                    <div class="quest-bytes">150B</div>
                 </div>
                 <div class="quest-desc">클로저의 동작 원리와 사용 사례 이해</div>
-                <span class="quest-difficulty difficulty-easy">쉬움</span>
-                <span class="status-badge status-completed">완료</span>
-            </div>
-
-            <div class="quest-card">
-                <div class="quest-header">
-                    <div class="quest-title">프로미스 3가지 상태 설명</div>
-                    <div class="quest-xp">+300 XP</div>
+                <div class="quest-meta">
+                    <span class="difficulty-tag diff-beginner">초급</span>
+                    <span style="background: #00ff00; padding: 3px 8px; font-size: 10px; color: #000; border-radius: 3px;">✓ COMPLETE</span>
                 </div>
-                <div class="quest-desc">Pending, Fulfilled, Rejected 상태를 설명하고 보고서 제출</div>
-                <span class="quest-difficulty difficulty-medium">보통</span>
-                <span class="status-badge status-active">진행 중</span>
-                <button class="btn-verify" onclick="verifyQuest()">퀘스트 검증 받기</button>
-            </div>
-
-            <div class="quest-card">
-                <div class="quest-header">
-                    <div class="quest-title">Custom Debounce Hook 구현</div>
-                    <div class="quest-xp">+500 XP</div>
-                </div>
-                <div class="quest-desc">useDebounce 커스텀 훅을 직접 구현하고 테스트</div>
-                <span class="quest-difficulty difficulty-hard">어려움</span>
-                <span class="status-badge status-locked">잠김 🔒</span>
             </div>
         </div>
 
-        <!-- AI Hint Section -->
-        <div class="epic-quest" style="background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);">
-            <h3>💡 AI 학습 가이드</h3>
-            <p>프로미스 퀘스트가 어려우신가요?</p>
-            <p style="margin-top: 8px; font-size: 12px;">"자바스크립트 비동기 기초 Lv.1" 서브 퀘스트를 먼저 완료해보세요!</p>
+        <!-- Page 3: Quest Verification -->
+        <div id="verification" class="page">
+            <div class="verification-header">
+                <div class="verification-title">[QUEST 1.2] 코드 감사 센터</div>
+                <div class="verification-subtitle">프로미스 3가지 상태 설명</div>
+            </div>
+
+            <div class="quiz-section">
+                <label class="quiz-label">AI 미니 퀴즈: 프로미스 체인에서 catch()는 언제 실행되며, finally()와의 차이점은?</label>
+                <textarea class="quiz-input" placeholder="답변을 입력하세요..."></textarea>
+            </div>
+
+            <div class="submit-section">
+                <label class="quiz-label">결과물 제출: async/await 비교 보고서</label>
+                <textarea class="quiz-input" style="min-height: 150px;" placeholder="보고서 내용을 입력하세요..."></textarea>
+            </div>
+
+            <button class="btn-verify" onclick="startVerification()">AI 검증 시작 (COMPILE)</button>
+
+            <div style="background: #1a1a1a; border: 1px solid #333; padding: 15px; margin-top: 15px;">
+                <p style="font-size: 11px; color: #666;">
+                    💡 검증 과정: LLM이 답변의 정확성, 깊이, 논리적 일관성을 평가합니다.<br>
+                    성공 시 300 Bytes 획득 및 다음 퀘스트 활성화
+                </p>
+            </div>
+        </div>
+
+        <!-- Page 4: Epic Quest Management -->
+        <div id="management" class="page">
+            <h2 style="font-size: 16px; color: var(--theme-primary); margin-bottom: 15px;">🎯 나의 에픽 퀘스트 관리</h2>
+
+            <button class="btn-action primary" style="width: 100%; margin-bottom: 20px;">
+                ➕ 새로운 에픽 퀘스트 시작하기
+            </button>
+
+            <div class="filter-tabs">
+                <button class="filter-tab active">활성</button>
+                <button class="filter-tab">진행 중</button>
+                <button class="filter-tab">보류 중</button>
+                <button class="filter-tab">완료</button>
+            </div>
+
+            <div class="quest-management-card">
+                <div class="quest-mgmt-header">
+                    <div class="quest-mgmt-title">3년 차 풀스택 개발자 되기</div>
+                    <div class="active-indicator">ACTIVE</div>
+                </div>
+                <p style="font-size: 11px; color: #aaa; margin-bottom: 8px;">레벨: Lv.15 | 테마: 코드 아키텍트</p>
+
+                <div class="progress-bar-simple">
+                    <div class="progress-fill" style="width: 50%;"></div>
+                    <div class="progress-text">50% 완료</div>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <button class="btn-action primary">주력 학습 유지</button>
+                    <button class="btn-action">일시 정지</button>
+                </div>
+            </div>
+
+            <div class="quest-management-card" style="opacity: 0.7;">
+                <div class="quest-mgmt-header">
+                    <div class="quest-mgmt-title">양자역학 기초 이해</div>
+                    <div style="padding: 4px 10px; background: #666; color: #fff; font-size: 10px; border-radius: 3px;">PAUSED</div>
+                </div>
+                <p style="font-size: 11px; color: #aaa; margin-bottom: 8px;">레벨: Lv.5 | 테마: 차원 탐험가</p>
+
+                <div class="progress-bar-simple">
+                    <div class="progress-fill" style="width: 15%;"></div>
+                    <div class="progress-text">15% 완료</div>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <button class="btn-action">활성화</button>
+                    <button class="btn-action">삭제</button>
+                </div>
+            </div>
+
+            <div style="background: var(--theme-card-bg); border: 1px dashed var(--theme-accent); padding: 15px; margin-top: 15px;">
+                <p style="font-size: 12px; color: var(--theme-accent); margin-bottom: 10px;">💡 AI 학습 경로 제안</p>
+                <p style="font-size: 11px; color: #aaa;">현재 JavaScript를 학습 중이시네요. TypeScript 마스터리 퀘스트를 추천합니다!</p>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <button class="nav-item active" data-page="dashboard">
+                <div class="nav-icon">📊</div>
+                <div>DASHBOARD</div>
+            </button>
+            <button class="nav-item" data-page="questlog">
+                <div class="nav-icon">📜</div>
+                <div>QUEST LOG</div>
+            </button>
+            <button class="nav-item" data-page="verification">
+                <div class="nav-icon">✅</div>
+                <div>VERIFY</div>
+            </button>
+            <button class="nav-item" data-page="management">
+                <div class="nav-icon">🎯</div>
+                <div>MANAGE</div>
+            </button>
         </div>
     </div>
 
-    <!-- Verification Modal -->
+    <!-- Verification Success Modal -->
     <div id="verificationModal" class="modal">
         <div class="modal-content">
-            <h2>🎉 퀘스트 검증 완료!</h2>
+            <h2>COMPILATION SUCCESS!</h2>
             <p>프로미스 3가지 상태를 완벽히 이해하셨습니다!</p>
-            <p><strong>+300 XP 획득!</strong></p>
-            <p style="margin-top: 15px;">다음 퀘스트가 활성화되었습니다.</p>
-            <button class="btn-close" onclick="closeModal()">확인</button>
+            <div class="compile-success">컴파일 성공율: 95%</div>
+            <p style="background: #000; border: 1px solid var(--theme-primary); padding: 10px; margin: 15px 0;">
+                +300 Bytes 획득!
+            </p>
+            <p style="font-size: 11px;">다음 퀘스트 [Custom Debounce Hook]이 활성화되었습니다.</p>
+            <button class="btn-close" onclick="closeModal('verificationModal')">확인</button>
+        </div>
+    </div>
+
+    <!-- AI Coaching Modal -->
+    <div id="coachingModal" class="modal coaching-modal">
+        <div class="modal-content">
+            <h2>⚠️ 경로 이탈 감지</h2>
+            <p style="color: var(--theme-accent);">AI 분석 결과</p>
+
+            <div class="recommendation-box">
+                <p style="margin-bottom: 10px;">현재 퀘스트 [Custom Debounce Hook]이 현재 수준보다 높습니다.</p>
+                <p style="font-size: 11px; color: #aaa;">
+                    잠시 이 퀘스트를 보류하고, 선행 지식인 <strong style="color: var(--theme-accent);">'자바스크립트 함수형 프로그래밍 Lv.1'</strong> 서브 퀘스트를 먼저 수행할 것을 추천합니다.
+                </p>
+            </div>
+
+            <button class="btn-action primary" style="width: 100%; margin-bottom: 8px;" onclick="closeModal('coachingModal')">
+                추천 경로로 이동
+            </button>
+            <button class="btn-close" onclick="closeModal('coachingModal')">현재 퀘스트 계속</button>
         </div>
     </div>
 
@@ -441,58 +915,82 @@
             }, 500);
         });
 
+        // Bottom Navigation
+        const navItems = document.querySelectorAll('.nav-item');
+        const pages = document.querySelectorAll('.page');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const pageName = item.getAttribute('data-page');
+
+                navItems.forEach(nav => nav.classList.remove('active'));
+                pages.forEach(page => page.classList.remove('active'));
+
+                item.classList.add('active');
+                document.getElementById(pageName).classList.add('active');
+            });
+        });
+
+        // Filter Tabs
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const parent = tab.parentElement;
+                parent.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
         // Quest Card Click
-        const questCards = document.querySelectorAll('.quest-card');
-        questCards.forEach(card => {
+        document.querySelectorAll('.quest-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 if (e.target.tagName !== 'BUTTON') {
-                    const isCompleted = this.classList.contains('completed');
-                    if (!isCompleted) {
-                        this.style.background = 'rgba(240, 147, 251, 0.3)';
-                        setTimeout(() => {
-                            this.style.background = 'rgba(255, 255, 255, 0.1)';
-                        }, 200);
-                    }
+                    this.style.borderLeftWidth = '12px';
+                    setTimeout(() => {
+                        this.style.borderLeftWidth = '4px';
+                    }, 200);
                 }
             });
         });
 
-        // Verify Quest
-        function verifyQuest() {
-            const modal = document.getElementById('verificationModal');
-            modal.classList.add('active');
+        // Start Verification
+        function startVerification() {
+            document.getElementById('verificationModal').classList.add('active');
 
-            // Update XP
+            // Simulate XP gain
             setTimeout(() => {
                 const xpFill = document.querySelector('.xp-fill');
                 const xpText = document.querySelector('.xp-text');
                 xpFill.style.width = '75%';
-                xpText.textContent = '2,250 / 3,000 XP to Lv. 16';
+                xpText.textContent = '2,250 / 3,000 Bytes → Lv.16';
             }, 1000);
         }
 
+        // Show Coaching Modal (trigger example)
+        setTimeout(() => {
+            // Uncomment to test coaching modal
+            // document.getElementById('coachingModal').classList.add('active');
+        }, 3000);
+
         // Close Modal
-        function closeModal() {
-            const modal = document.getElementById('verificationModal');
-            modal.classList.remove('active');
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
         }
 
         // Click outside modal to close
         window.addEventListener('click', (e) => {
-            const modal = document.getElementById('verificationModal');
-            if (e.target === modal) {
-                closeModal();
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
             }
         });
 
-        // Badge hover effect
-        const badges = document.querySelectorAll('.badge');
-        badges.forEach(badge => {
-            badge.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.1) rotate(5deg)';
+        // Certificate hover effect
+        document.querySelectorAll('.certificate').forEach(cert => {
+            cert.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
             });
-            badge.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1) rotate(0deg)';
+            cert.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
             });
         });
     </script>
