@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 플랫폼 프로젝트</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
+        .card-icon {
+            font-size: 60px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .feature-list li {
+            font-size: 13px;
+            color: #555;
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .btn-enter {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .btn-enter:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .platform-card {
+                padding: 25px;
+            }
+
+            .card-icon {
+                font-size: 50px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI 기반 플랫폼 프로젝트</h1>
+        <p class="subtitle">여행과 학습을 혁신하는 두 가지 플랫폼을 경험해보세요</p>
+
+        <div class="cards-container">
+            <a href="local-travel-platform.html" class="platform-card">
+                <div class="card-icon">🤝</div>
+                <h2 class="card-title">현지인 필터 & 문화 코칭</h2>
+                <p class="card-description">
+                    가짜 관광지 정보를 걸러내고, 진짜 현지인의 추천과 문화 통찰을 받아보세요.
+                </p>
+                <ul class="feature-list">
+                    <li>AI 기반 진정성 필터</li>
+                    <li>현지인만 아는 최적 경로</li>
+                    <li>실시간 문화 코칭</li>
+                    <li>현지인-여행객 매칭</li>
+                </ul>
+                <button class="btn-enter">플랫폼 체험하기</button>
+            </a>
+
+            <a href="quest-learning-platform.html" class="platform-card">
+                <div class="card-icon">🎮</div>
+                <h2 class="card-title">퀘스트형 지식 마스터리</h2>
+                <p class="card-description">
+                    게임처럼 즐겁게 학습하고, AI 검증을 통해 진정한 마스터리를 달성하세요.
+                </p>
+                <ul class="feature-list">
+                    <li>AI 기반 학습 경로 설계</li>
+                    <li>게임형 퀘스트 시스템</li>
+                    <li>엄격한 AI 지식 검증</li>
+                    <li>XP, 레벨, 칭호 시스템</li>
+                </ul>
+                <button class="btn-enter">플랫폼 체험하기</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Prevent default link behavior and add smooth transition
+        document.querySelectorAll('.platform-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 200);
+            });
+        });
+
+        // Add entrance animation
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.platform-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s, transform 0.6s';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
