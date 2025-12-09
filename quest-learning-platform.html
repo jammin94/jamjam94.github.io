@@ -611,6 +611,46 @@
             color: var(--theme-primary);
         }
 
+        /* Wizard Steps */
+        .wizard-step {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .analyzing {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+
         @media (max-width: 480px) {
             .container {
                 max-width: 100%;
@@ -798,7 +838,7 @@
         <div id="management" class="page">
             <h2 style="font-size: 16px; color: var(--theme-primary); margin-bottom: 15px;">🎯 나의 에픽 퀘스트 관리</h2>
 
-            <button class="btn-action primary" style="width: 100%; margin-bottom: 20px;">
+            <button class="btn-action primary" style="width: 100%; margin-bottom: 20px;" onclick="startQuestCreation()">
                 ➕ 새로운 에픽 퀘스트 시작하기
             </button>
 
@@ -848,6 +888,140 @@
             <div style="background: var(--theme-card-bg); border: 1px dashed var(--theme-accent); padding: 15px; margin-top: 15px;">
                 <p style="font-size: 12px; color: var(--theme-accent); margin-bottom: 10px;">💡 AI 학습 경로 제안</p>
                 <p style="font-size: 11px; color: #aaa;">현재 JavaScript를 학습 중이시네요. TypeScript 마스터리 퀘스트를 추천합니다!</p>
+            </div>
+        </div>
+
+        <!-- Page 5: Quest Creation Wizard -->
+        <div id="creation" class="page">
+            <div class="verification-header">
+                <div class="verification-title">🎯 에픽 퀘스트 생성 마법사</div>
+                <div class="verification-subtitle">AI가 당신의 학습 경로를 설계합니다</div>
+            </div>
+
+            <!-- Step 1: Goal Input -->
+            <div id="step1" class="wizard-step">
+                <div style="background: var(--theme-card-bg); border: 1px solid var(--theme-primary); padding: 20px; margin-bottom: 15px;">
+                    <p style="font-size: 12px; color: var(--theme-accent); margin-bottom: 15px;">STEP 1 / 4 :: 목표 입력</p>
+
+                    <label class="quiz-label">궁극적으로 달성하고 싶은 목표는 무엇인가요?</label>
+                    <textarea id="goalInput" class="quiz-input" style="min-height: 100px;" placeholder="예: 3년 차 수준의 풀스택 웹 개발자가 되고 싶습니다"></textarea>
+
+                    <button class="btn-verify" onclick="goToStep2()" style="margin-top: 15px;">다음 단계로</button>
+                </div>
+
+                <div style="background: #1a1a1a; border: 1px solid #333; padding: 15px;">
+                    <p style="font-size: 11px; color: #666;">
+                        💡 구체적으로 작성할수록 AI가 더 정확한 학습 경로를 설계합니다.<br>
+                        예시: "React와 Node.js를 사용한 풀스택 개발자", "머신러닝 엔지니어"
+                    </p>
+                </div>
+            </div>
+
+            <!-- Step 2: Current Level Diagnosis -->
+            <div id="step2" class="wizard-step" style="display: none;">
+                <div style="background: var(--theme-card-bg); border: 1px solid var(--theme-primary); padding: 20px; margin-bottom: 15px;">
+                    <p style="font-size: 12px; color: var(--theme-accent); margin-bottom: 15px;">STEP 2 / 4 :: 현재 수준 진단</p>
+
+                    <label class="quiz-label">현재 보유한 지식/경험을 간단히 설명해주세요</label>
+                    <textarea id="currentLevelInput" class="quiz-input" style="min-height: 120px;" placeholder="예: HTML/CSS는 기본적으로 알고, JavaScript는 변수와 함수까지 공부했습니다. React는 경험이 없습니다."></textarea>
+
+                    <div style="margin-top: 20px;">
+                        <p style="font-size: 12px; color: var(--theme-primary); margin-bottom: 10px;">선호하는 학습 방식:</p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button class="filter-tab">이론 중심</button>
+                            <button class="filter-tab">실습 중심</button>
+                            <button class="filter-tab">프로젝트 기반</button>
+                            <button class="filter-tab">혼합</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-verify" onclick="goToStep3()" style="margin-top: 20px;">AI 분석 시작</button>
+                </div>
+            </div>
+
+            <!-- Step 3: AI Analysis Loading -->
+            <div id="step3" class="wizard-step" style="display: none;">
+                <div style="background: var(--theme-card-bg); border: 2px solid var(--theme-accent); padding: 30px; margin-bottom: 15px; text-align: center;">
+                    <p style="font-size: 12px; color: var(--theme-accent); margin-bottom: 20px;">STEP 3 / 4 :: AI 분석 중</p>
+
+                    <div style="margin: 30px 0;">
+                        <div style="font-size: 40px; animation: pulse 1.5s infinite;">🤖</div>
+                        <p style="margin-top: 20px; color: var(--theme-primary);">지식 그래프를 분석하고 있습니다...</p>
+
+                        <div style="margin-top: 20px; font-size: 11px; color: #666;">
+                            <p>✓ 목표 분석 완료</p>
+                            <p>✓ 현재 수준 평가 완료</p>
+                            <p class="analyzing">⏳ 최적 학습 경로 생성 중...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Quest Tree Preview -->
+            <div id="step4" class="wizard-step" style="display: none;">
+                <div style="background: var(--theme-card-bg); border: 1px solid var(--theme-primary); padding: 20px; margin-bottom: 15px;">
+                    <p style="font-size: 12px; color: var(--theme-accent); margin-bottom: 15px;">STEP 4 / 4 :: 퀘스트 구조 확인</p>
+
+                    <div style="background: #000; border: 1px solid var(--theme-secondary); padding: 15px; margin-bottom: 20px;">
+                        <p style="font-size: 13px; color: var(--theme-primary); font-weight: bold; margin-bottom: 10px;">🏆 에픽 퀘스트</p>
+                        <p style="font-size: 12px; color: #aaa;">3년 차 수준의 풀스택 웹 개발자 되기</p>
+                        <p style="font-size: 10px; color: #666; margin-top: 5px;">예상 기간: 18개월 | 예상 XP: 15,000 Bytes</p>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <p style="font-size: 11px; color: var(--theme-accent); margin-bottom: 10px; text-transform: uppercase;">대 퀘스트 (마스터리)</p>
+
+                        <div class="quest-card" style="margin-bottom: 8px;">
+                            <div class="quest-header">
+                                <div class="quest-title">[M1] JavaScript 심화 및 비동기</div>
+                                <div class="quest-bytes">1,200B</div>
+                            </div>
+                            <div class="quest-desc">클로저, 프로미스, async/await 완전 정복</div>
+                        </div>
+
+                        <div class="quest-card" style="margin-bottom: 8px;">
+                            <div class="quest-header">
+                                <div class="quest-title">[M2] React 기초 마스터</div>
+                                <div class="quest-bytes">1,000B</div>
+                            </div>
+                            <div class="quest-desc">컴포넌트, Hooks, State 관리</div>
+                        </div>
+
+                        <div class="quest-card" style="margin-bottom: 8px;">
+                            <div class="quest-header">
+                                <div class="quest-title">[M3] Node.js & Express 백엔드</div>
+                                <div class="quest-bytes">1,500B</div>
+                            </div>
+                            <div class="quest-desc">서버 구축, API 개발, DB 연동</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #1a1a1a; border-left: 4px solid var(--theme-accent); padding: 15px; margin-bottom: 15px;">
+                        <p style="font-size: 11px; color: var(--theme-accent); margin-bottom: 10px;">중 퀘스트 예시 (M1 하위)</p>
+
+                        <div style="font-size: 11px; color: #aaa; margin-bottom: 5px;">→ [1.1] 클로저와 스코프 이해</div>
+                        <div style="font-size: 11px; color: #aaa; margin-bottom: 5px;">→ [1.2] 프로미스와 비동기 처리</div>
+                        <div style="font-size: 11px; color: #aaa;">→ [1.3] async/await 실전 적용</div>
+                    </div>
+
+                    <div style="background: #1a1a1a; border-left: 4px solid var(--theme-secondary); padding: 15px; margin-bottom: 20px;">
+                        <p style="font-size: 11px; color: var(--theme-secondary); margin-bottom: 10px;">소 퀘스트 예시 (1.2 하위)</p>
+
+                        <div style="font-size: 10px; color: #666; margin-bottom: 4px;">→ [1.2.1] 프로미스 3가지 상태 학습 (150B)</div>
+                        <div style="font-size: 10px; color: #666; margin-bottom: 4px;">→ [1.2.2] Promise 체이닝 실습 (200B)</div>
+                        <div style="font-size: 10px; color: #666;">→ [1.2.3] 에러 핸들링 마스터 (250B)</div>
+                    </div>
+
+                    <button class="btn-verify" onclick="confirmQuestCreation()">이 구조로 시작하기</button>
+                    <button class="btn-action" style="width: 100%; margin-top: 8px;" onclick="goToStep1()">처음부터 다시</button>
+                </div>
+
+                <div style="background: #1a1a1a; border: 1px solid #333; padding: 15px;">
+                    <p style="font-size: 11px; color: #666;">
+                        💡 AI가 생성한 학습 경로입니다. 시작 후에도 언제든지 조정할 수 있습니다.<br>
+                        총 <strong style="color: var(--theme-accent);">3개 대 퀘스트</strong>, <strong style="color: var(--theme-accent);">9개 중 퀘스트</strong>, <strong style="color: var(--theme-accent);">27개 소 퀘스트</strong>로 구성됩니다.
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -993,6 +1167,63 @@
                 this.style.transform = 'scale(1)';
             });
         });
+
+        // Quest Creation Wizard
+        function startQuestCreation() {
+            // Switch to creation page
+            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById('creation').classList.add('active');
+
+            // Reset to step 1
+            document.querySelectorAll('.wizard-step').forEach(step => step.style.display = 'none');
+            document.getElementById('step1').style.display = 'block';
+        }
+
+        function goToStep2() {
+            const goalInput = document.getElementById('goalInput').value;
+            if (!goalInput.trim()) {
+                alert('목표를 입력해주세요!');
+                return;
+            }
+
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        function goToStep3() {
+            const currentLevelInput = document.getElementById('currentLevelInput').value;
+            if (!currentLevelInput.trim()) {
+                alert('현재 수준을 입력해주세요!');
+                return;
+            }
+
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'block';
+
+            // Simulate AI analysis
+            setTimeout(() => {
+                document.getElementById('step3').style.display = 'none';
+                document.getElementById('step4').style.display = 'block';
+            }, 3000);
+        }
+
+        function goToStep1() {
+            document.querySelectorAll('.wizard-step').forEach(step => step.style.display = 'none');
+            document.getElementById('step1').style.display = 'block';
+        }
+
+        function confirmQuestCreation() {
+            // Show success modal
+            alert('🎉 에픽 퀘스트가 생성되었습니다!\n\n"3년 차 수준의 풀스택 웹 개발자 되기" 학습을 시작합니다.');
+
+            // Go back to dashboard
+            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+
+            document.querySelector('[data-page="dashboard"]').classList.add('active');
+            document.getElementById('dashboard').classList.add('active');
+        }
     </script>
 </body>
 </html>

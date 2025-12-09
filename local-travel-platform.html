@@ -784,6 +784,175 @@
             <button class="btn-new-post">➕ 새 제안 올리기</button>
         </div>
 
+        <!-- Page 5: Q&A Community -->
+        <div id="qna" class="page">
+            <h2 style="font-size: 20px; margin-bottom: 20px; color: #333;">💬 Q&A 커뮤니티</h2>
+
+            <input type="text" class="search-box" placeholder="궁금한 내용을 검색해보세요">
+
+            <div class="request-type-tabs">
+                <button class="request-tab active" data-qna-type="all">
+                    전체
+                </button>
+                <button class="request-tab" data-qna-type="route">
+                    🗺️ 길/장소
+                </button>
+                <button class="request-tab" data-qna-type="food">
+                    🍽️ 맛집
+                </button>
+                <button class="request-tab" data-qna-type="culture">
+                    🎭 문화/예절
+                </button>
+            </div>
+
+            <!-- Q&A Card 1 -->
+            <div class="social-post" style="border-left: 4px solid #667eea;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 11px; padding: 3px 8px; background: #e3f2fd; color: #1976d2; border-radius: 8px;">🗺️ 길/장소</span>
+                    <span style="font-size: 11px; color: #999;">2시간 전</span>
+                </div>
+
+                <div class="post-content" style="font-weight: bold; color: #333; margin-bottom: 10px;">
+                    Q: 홍대에서 강남으로 가는 가장 빠른 방법이 뭔가요?
+                </div>
+                <div style="font-size: 13px; color: #666; margin-bottom: 10px;">
+                    늦은 저녁 시간대인데 지하철이 빠를까요, 택시가 빠를까요?
+                </div>
+
+                <div style="background: #f8f9fa; border-left: 3px solid #667eea; padding: 12px; margin-bottom: 10px;">
+                    <div class="post-header" style="margin-bottom: 8px;">
+                        <div class="post-avatar" style="width: 35px; height: 35px; font-size: 16px;">👨</div>
+                        <div class="post-info">
+                            <h4 style="font-size: 13px;">김민수 (서울 거주 10년)</h4>
+                            <p style="font-size: 11px;">Lv.20 Master Guide</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 13px; color: #333; line-height: 1.5;">
+                        <strong>A:</strong> 늦은 저녁이면 지하철 2호선이 확실히 빠릅니다! 약 30분 소요. 택시는 교통 상황에 따라 40-60분 걸릴 수 있어요. 홍대입구역 → 강남역 직통입니다.
+                    </p>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 15px;">
+                        <span style="font-size: 12px; color: #666;">👍 도움됨 23</span>
+                        <span style="font-size: 12px; color: #666;">💬 답변 1</span>
+                    </div>
+                    <button style="padding: 6px 12px; background: transparent; border: 1px solid #667eea; color: #667eea; border-radius: 8px; font-size: 11px; cursor: pointer;">
+                        나도 궁금해요
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q&A Card 2 -->
+            <div class="social-post" style="border-left: 4px solid #ff9800;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 11px; padding: 3px 8px; background: #fff3cd; color: #856404; border-radius: 8px;">🍽️ 맛집</span>
+                    <span style="font-size: 11px; color: #999;">5시간 전</span>
+                </div>
+
+                <div class="post-content" style="font-weight: bold; color: #333; margin-bottom: 10px;">
+                    Q: 광장시장에서 꼭 먹어봐야 할 음식 추천해주세요!
+                </div>
+                <div style="font-size: 13px; color: #666; margin-bottom: 10px;">
+                    처음 가는데 뭐가 유명한지 모르겠어요. 현지인 추천 부탁드려요!
+                </div>
+
+                <div style="background: #f8f9fa; border-left: 3px solid #ff9800; padding: 12px; margin-bottom: 10px;">
+                    <div class="post-header" style="margin-bottom: 8px;">
+                        <div class="post-avatar" style="width: 35px; height: 35px; font-size: 16px;">👩</div>
+                        <div class="post-info">
+                            <h4 style="font-size: 13px;">이지원 (서울 거주 5년)</h4>
+                            <p style="font-size: 11px;">Lv.15 Good Samaritan</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 13px; color: #333; line-height: 1.5;">
+                        <strong>A:</strong> 빈대떡과 마약김밥은 필수! 순희네 빈대떡이 진짜 맛있어요. 육회도 신선하고 좋습니다. 너무 관광지화 되었다는 말도 있지만 그래도 맛은 보장!
+                    </p>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 15px;">
+                        <span style="font-size: 12px; color: #666;">👍 도움됨 45</span>
+                        <span style="font-size: 12px; color: #666;">💬 답변 3</span>
+                    </div>
+                    <button style="padding: 6px 12px; background: transparent; border: 1px solid #667eea; color: #667eea; border-radius: 8px; font-size: 11px; cursor: pointer;">
+                        나도 궁금해요
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q&A Card 3 -->
+            <div class="social-post" style="border-left: 4px solid #e91e63;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 11px; padding: 3px 8px; background: #fce4ec; color: #c2185b; border-radius: 8px;">🎭 문화/예절</span>
+                    <span style="font-size: 11px; color: #999;">1일 전</span>
+                </div>
+
+                <div class="post-content" style="font-weight: bold; color: #333; margin-bottom: 10px;">
+                    Q: 한국 찜질방 처음인데 주의할 점 있나요?
+                </div>
+                <div style="font-size: 13px; color: #666; margin-bottom: 10px;">
+                    외국인 친구와 함께 가려고 하는데 예절이나 매너가 궁금합니다.
+                </div>
+
+                <div style="background: #f8f9fa; border-left: 3px solid #e91e63; padding: 12px; margin-bottom: 10px;">
+                    <div class="post-header" style="margin-bottom: 8px;">
+                        <div class="post-avatar" style="width: 35px; height: 35px; font-size: 16px;">🧑</div>
+                        <div class="post-info">
+                            <h4 style="font-size: 13px;">박서연 (서울 거주 7년)</h4>
+                            <p style="font-size: 11px;">Lv.18 Master Guide</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 13px; color: #333; line-height: 1.5;">
+                        <strong>A:</strong> 1) 신발은 락커에 보관 2) 탕 들어가기 전 샤워 필수 3) 수건은 몸에 두르지 말고 머리에만 4) 큰 소리로 떠들지 않기 5) 음식은 공용 공간에서만! 즐거운 경험 되세요 😊
+                    </p>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 15px;">
+                        <span style="font-size: 12px; color: #666;">👍 도움됨 67</span>
+                        <span style="font-size: 12px; color: #666;">💬 답변 2</span>
+                    </div>
+                    <button style="padding: 6px 12px; background: transparent; border: 1px solid #667eea; color: #667eea; border-radius: 8px; font-size: 11px; cursor: pointer;">
+                        나도 궁금해요
+                    </button>
+                </div>
+            </div>
+
+            <!-- Q&A Card 4 - No Answer Yet -->
+            <div class="social-post" style="border-left: 4px solid #667eea; opacity: 0.8;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 11px; padding: 3px 8px; background: #e3f2fd; color: #1976d2; border-radius: 8px;">🗺️ 길/장소</span>
+                    <span style="font-size: 11px; color: #999;">30분 전</span>
+                </div>
+
+                <div class="post-content" style="font-weight: bold; color: #333; margin-bottom: 10px;">
+                    Q: 인천공항에서 명동까지 가장 저렴한 방법은?
+                </div>
+                <div style="font-size: 13px; color: #666; margin-bottom: 10px;">
+                    공항버스 vs 지하철 중에 고민입니다. 가격과 시간이 궁금해요!
+                </div>
+
+                <div style="background: #fff3cd; border-left: 3px solid #ffc107; padding: 12px; margin-bottom: 10px;">
+                    <p style="font-size: 12px; color: #856404;">
+                        ⏳ 현지인 답변을 기다리고 있습니다...
+                    </p>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 15px;">
+                        <span style="font-size: 12px; color: #666;">👍 도움됨 5</span>
+                        <span style="font-size: 12px; color: #666;">💬 답변 0</span>
+                    </div>
+                    <button style="padding: 6px 12px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 11px; cursor: pointer;">
+                        답변하기
+                    </button>
+                </div>
+            </div>
+
+            <button class="btn-primary" style="margin-top: 20px;">➕ 새 질문 올리기</button>
+        </div>
+
         <!-- Bottom Navigation -->
         <div class="bottom-nav">
             <button class="nav-item active" data-page="home">
@@ -793,6 +962,10 @@
             <button class="nav-item" data-page="help">
                 <div class="nav-icon">❓</div>
                 <div>도움요청</div>
+            </button>
+            <button class="nav-item" data-page="qna">
+                <div class="nav-icon">💬</div>
+                <div>Q&A</div>
             </button>
             <button class="nav-item" data-page="map">
                 <div class="nav-icon">🗺️</div>
